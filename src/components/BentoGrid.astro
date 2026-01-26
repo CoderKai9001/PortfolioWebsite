@@ -4,17 +4,22 @@ import ProjectTile from './tiles/ProjectTile';
 import SocialTile from './tiles/SocialTile';
 import TechStackTile from './tiles/TechStackTile';
 import ResearchTile from './tiles/ResearchTile';
+import { fetchPinnedProjects } from '../lib/github';
+
+const projects = await fetchPinnedProjects();
+const featuredProject = projects[0];
+const otherProjects = projects.slice(1, 4); // Take next 3 for a balanced grid
 ---
 
 <div class="w-full max-w-6xl mx-auto px-4 py-12 md:py-20">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-    <!-- Row 1: Hero (2x2) and Active Project (2x1) -->
+    <!-- Row 1 & 2: Hero (2x2) and Featured Project (2x1) -->
     <div class="md:col-span-2 md:row-span-2">
       <HeroTile client:load delay={0} />
     </div>
     
     <div class="md:col-span-2">
-      <ProjectTile client:load delay={0.2} />
+      <ProjectTile client:load project={featuredProject} delay={0.2} />
     </div>
     
     <!-- Row 2: Tech (1x1) and Research (1x1) -->
@@ -26,10 +31,17 @@ import ResearchTile from './tiles/ResearchTile';
       <ResearchTile client:load delay={0.4} />
     </div>
     
-    <!-- Row 3: Social (4x1) at the bottom -->
-    <div class="md:col-span-4 flex justify-center">
+    <!-- Dynamic Secondary Projects (if space allows or as new rows) -->
+    {otherProjects.map((project, index) => (
+      <div class={index === 0 ? "md:col-span-2" : "md:col-span-1"}>
+        <ProjectTile client:load project={project} delay={0.5 + index * 0.1} />
+      </div>
+    ))}
+
+    <!-- Row N: Social (4x1) at the bottom -->
+    <div class="md:col-span-4 flex justify-center mt-4">
       <div class="w-full md:w-1/2">
-        <SocialTile client:load delay={0.5} />
+        <SocialTile client:load delay={0.8} />
       </div>
     </div>
   </div>
