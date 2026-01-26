@@ -20,8 +20,8 @@ const LidarBackground: React.FC = () => {
     const positions = new Float32Array(count * 3);
     const originalPositions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    const pink = new THREE.Color('#08CB00');
-    const cyan = new THREE.Color('#253900');
+    const brightGreen = new THREE.Color('#08CB00');
+    const darkerGreen = new THREE.Color('#1a5e00');
 
     for (let i = 0; i < count; i++) {
       const x = (Math.random() - 0.5) * 12;
@@ -36,8 +36,8 @@ const LidarBackground: React.FC = () => {
       originalPositions[i * 3 + 2] = z;
 
       // Gradient color based on position
-      const t = (y + 6) / 12; // normalize y to 0-1
-      const mixed = pink.clone().lerp(cyan, t + Math.random() * 0.3);
+      const t = (y + 6) / 12;
+      const mixed = brightGreen.clone().lerp(darkerGreen, t * 0.7 + Math.random() * 0.3);
       colors[i * 3] = mixed.r;
       colors[i * 3 + 1] = mixed.g;
       colors[i * 3 + 2] = mixed.b;
@@ -67,11 +67,11 @@ const LidarBackground: React.FC = () => {
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-      size: 0.025,
+      size: 0.045,
       map: circleTexture,
       vertexColors: true,
       transparent: true,
-      opacity: 0.9,
+      opacity: 1.0,
       sizeAttenuation: true,
       alphaTest: 0.01,
     });
@@ -141,14 +141,12 @@ const LidarBackground: React.FC = () => {
           newZ += force * 0.3;
 
           // Brighten points near cursor
-          const brightGreen = new THREE.Color('#55FF55');
-          const brightCyan = new THREE.Color('#AAFFAA');
-          const bright = brightGreen.clone().lerp(brightCyan, Math.random());
-          colAttr.setXYZ(i, bright.r, bright.g, bright.b);
+          const scanLineColor = new THREE.Color('#ccffcc');
+          colAttr.setXYZ(i, scanLineColor.r, scanLineColor.g, scanLineColor.b);
         } else {
           // Reset color
           const t = (oy + 6) / 12;
-          const normal = pink.clone().lerp(cyan, t);
+          const normal = brightGreen.clone().lerp(darkerGreen, t * 0.7);
           colAttr.setXYZ(i, normal.r, normal.g, normal.b);
         }
 
@@ -175,7 +173,7 @@ const LidarBackground: React.FC = () => {
     };
   }, []);
 
-  return <div ref={containerRef} className="fixed inset-0 -z-10 bg-obsidian" />;
+  return <div ref={containerRef} className="fixed inset-0 z-0 bg-obsidian pointer-events-none" />;
 };
 
 export default LidarBackground;

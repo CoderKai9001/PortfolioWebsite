@@ -27,8 +27,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-obsidian);
-  color: white;
+  color: #EEEEEE;
   min-height: 100vh;
   overflow-x: hidden;
 }
