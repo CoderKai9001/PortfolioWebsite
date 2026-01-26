@@ -163,20 +163,38 @@ const LidarBackground: React.FC = () => {
         const colAttr = geometry!.attributes.color;
         points.rotation.y += 0.0008;
 
+        // Rotate mouse inversely to match point cloud rotation
+        // The point cloud rotates around Y axis: points.rotation.y
+        const angle = -points.rotation.y;
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+
+        // Target coordinates in "virtual" space
+        const tx = mouse.x * 5;
+        const ty = mouse.y * 5;
+
         for (let i = 0; i < count; i++) {
           const ox = originalPositions[i * 3];
           const oy = originalPositions[i * 3 + 1];
           const oz = originalPositions[i * 3 + 2];
-          const dx = mouse.x * 5 - ox;
-          const dy = mouse.y * 5 - oy;
+
+          // Apply rotation to original positions to get current visual positions
+          // OR: Rotate the target mouse position inversely to compare against original positions
+          const rx = ox * Math.cos(points.rotation.y) - oz * Math.sin(points.rotation.y);
+          const rz = ox * Math.sin(points.rotation.y) + oz * Math.cos(points.rotation.y);
+
+          const dx = tx - rx;
+          const dy = ty - oy;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           let newX = ox; let newY = oy; let newZ = oz;
           if (dist < 2) {
             const force = (2 - dist) / 2;
-            newX += dx * force * 0.15;
-            newY += dy * force * 0.15;
-            newZ += force * 0.3;
+            // Add some "Z" displacement and local "push"
+            // We set the attribute values based on original pos + displacement
+            // but we need to be careful with coordinate systems here.
+            // Simplest is to highlight based on distance to rotated positions.
+            newZ += force * 0.5;
             colAttr.setXYZ(i, 0.8, 1.0, 0.8);
           } else {
             const t = (oy + 6) / 12;

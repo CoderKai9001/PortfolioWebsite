@@ -1,26 +1,30 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BentoGrid from '../components/BentoGrid.astro';
-import LidarBackground from '../components/LidarBackground';
-import ScanlineOverlay from '../components/ScanlineOverlay';
-import CoordinatesTracker from '../components/CoordinatesTracker';
+import Layout from "../layouts/Layout.astro";
+import BentoGrid from "../components/BentoGrid.astro";
+import LidarBackground from "../components/LidarBackground";
+import ScanlineOverlay from "../components/ScanlineOverlay";
+import CoordinatesTracker from "../components/CoordinatesTracker";
+import CustomCursor from "../components/CustomCursor";
 ---
 
 <Layout title="Aditya Vadali | Perception & Robotic Vision">
+  <!-- Custom Cursor -->
+  <CustomCursor client:load />
+
   <!-- LIDAR Point Cloud Background -->
   <LidarBackground client:load />
-  
+
   <!-- Scanline Overlay Effect -->
   <ScanlineOverlay client:load />
-  
+
   <!-- Coordinates Tracker -->
   <CoordinatesTracker client:load />
-  
+
   <!-- Main Content -->
   <main class="relative z-10 min-h-screen flex items-center justify-center">
     <BentoGrid />
   </main>
-  
+
   <!-- Headline text at very top -->
   <div class="fixed top-6 left-1/2 -translate-x-1/2 z-20">
     <p class="mono text-xs text-white/40 tracking-widest">

@@ -30,6 +30,7 @@ body {
   color: #EEEEEE;
   min-height: 100vh;
   overflow-x: hidden;
+  cursor: none;
 }
 
 h1,
