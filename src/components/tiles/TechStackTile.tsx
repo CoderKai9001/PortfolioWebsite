@@ -7,10 +7,9 @@ interface TechStackTileProps {
 
 const TechStackTile: React.FC<TechStackTileProps> = ({ delay = 0 }) => {
     const technologies = [
-        { name: 'Python', color: '#3776AB' },
-        { name: 'C++', color: '#00599C' },
-        { name: 'ROS2', color: '#22314E' },
-        { name: 'PyTorch', color: '#EE4C2C' },
+        { name: 'Python', color: '#08CB00' },
+        // { name: 'ROS2', color: '#046a00' },
+        { name: 'PyTorch', color: '#EEEEEE' },
     ];
 
     return (

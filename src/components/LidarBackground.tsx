@@ -20,21 +20,21 @@ const LidarBackground: React.FC = () => {
     const positions = new Float32Array(count * 3);
     const originalPositions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    const pink = new THREE.Color('#f472b6');
-    const cyan = new THREE.Color('#22d3ee');
+    const pink = new THREE.Color('#08CB00');
+    const cyan = new THREE.Color('#253900');
 
     for (let i = 0; i < count; i++) {
       const x = (Math.random() - 0.5) * 12;
       const y = (Math.random() - 0.5) * 12;
       const z = (Math.random() - 0.5) * 8;
-      
+
       positions[i * 3] = x;
       positions[i * 3 + 1] = y;
       positions[i * 3 + 2] = z;
       originalPositions[i * 3] = x;
       originalPositions[i * 3 + 1] = y;
       originalPositions[i * 3 + 2] = z;
-      
+
       // Gradient color based on position
       const t = (y + 6) / 12; // normalize y to 0-1
       const mixed = pink.clone().lerp(cyan, t + Math.random() * 0.3);
@@ -43,16 +43,37 @@ const LidarBackground: React.FC = () => {
       colors[i * 3 + 2] = mixed.b;
     }
 
+    // --- Circular Texture Generation ---
+    const createCircleTexture = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 64;
+      canvas.height = 64;
+      const context = canvas.getContext('2d');
+      if (!context) return null;
+
+      context.beginPath();
+      context.arc(32, 32, 28, 0, 2 * Math.PI);
+      context.fillStyle = '#ffffff';
+      context.fill();
+
+      const texture = new THREE.CanvasTexture(canvas);
+      return texture;
+    };
+
+    const circleTexture = createCircleTexture();
+
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-      size: 0.035,
+      size: 0.025,
+      map: circleTexture,
       vertexColors: true,
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.9,
       sizeAttenuation: true,
+      alphaTest: 0.01,
     });
 
     const points = new THREE.Points(geometry, material);
@@ -62,7 +83,7 @@ const LidarBackground: React.FC = () => {
     // --- Mouse Interaction ---
     const mouse = new THREE.Vector2(-999, -999);
     const targetMouse = new THREE.Vector2(-999, -999);
-    
+
     const onMouseMove = (event: MouseEvent) => {
       targetMouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       targetMouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -82,11 +103,11 @@ const LidarBackground: React.FC = () => {
     const animate = () => {
       requestAnimationFrame(animate);
       time += 0.01;
-      
+
       // Smooth mouse following
       mouse.x += (targetMouse.x - mouse.x) * 0.05;
       mouse.y += (targetMouse.y - mouse.y) * 0.05;
-      
+
       const posAttr = geometry.attributes.position;
       const colAttr = geometry.attributes.color;
 
@@ -118,11 +139,11 @@ const LidarBackground: React.FC = () => {
           newX += dx * force * 0.15;
           newY += dy * force * 0.15;
           newZ += force * 0.3;
-          
+
           // Brighten points near cursor
-          const brightPink = new THREE.Color('#ff8fc8');
-          const brightCyan = new THREE.Color('#5ef5ff');
-          const bright = brightPink.clone().lerp(brightCyan, Math.random());
+          const brightGreen = new THREE.Color('#55FF55');
+          const brightCyan = new THREE.Color('#AAFFAA');
+          const bright = brightGreen.clone().lerp(brightCyan, Math.random());
           colAttr.setXYZ(i, bright.r, bright.g, bright.b);
         } else {
           // Reset color
@@ -133,7 +154,7 @@ const LidarBackground: React.FC = () => {
 
         posAttr.setXYZ(i, newX, newY, newZ);
       }
-      
+
       posAttr.needsUpdate = true;
       colAttr.needsUpdate = true;
       renderer.render(scene, camera);

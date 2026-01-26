@@ -8,6 +8,9 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://CoderKai9001.github.io',
   base: '/PortfolioWebsite/',
+  devToolbar: {
+    enabled: false
+  },
   vite: {
     plugins: [tailwindcss()]
   },

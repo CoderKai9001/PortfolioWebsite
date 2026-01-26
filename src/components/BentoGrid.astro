@@ -8,32 +8,29 @@ import ResearchTile from './tiles/ResearchTile';
 
 <div class="w-full max-w-6xl mx-auto px-4 py-12 md:py-20">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-    <!-- Hero Tile: 2x2 -->
+    <!-- Row 1: Hero (2x2) and Active Project (2x1) -->
     <div class="md:col-span-2 md:row-span-2">
       <HeroTile client:load delay={0} />
     </div>
     
-    <!-- Social Links: 1x1 -->
-    <div class="md:col-span-1">
-      <SocialTile client:load delay={0.2} />
+    <div class="md:col-span-2">
+      <ProjectTile client:load delay={0.2} />
     </div>
     
-    <!-- Tech Stack: 1x1 -->
+    <!-- Row 2: Tech (1x1) and Research (1x1) -->
     <div class="md:col-span-1">
       <TechStackTile client:load delay={0.3} />
     </div>
     
-    <!-- Research Interests: 1x1 -->
     <div class="md:col-span-1">
       <ResearchTile client:load delay={0.4} />
     </div>
     
-    <!-- Empty spacer for layout on desktop -->
-    <div class="hidden md:block md:col-span-1"></div>
-    
-    <!-- Active Project: 2x1 -->
-    <div class="md:col-span-2">
-      <ProjectTile client:load delay={0.5} />
+    <!-- Row 3: Social (4x1) at the bottom -->
+    <div class="md:col-span-4 flex justify-center">
+      <div class="w-full md:w-1/2">
+        <SocialTile client:load delay={0.5} />
+      </div>
     </div>
   </div>
 </div>

@@ -9,7 +9,6 @@ const ResearchTile: React.FC<ResearchTileProps> = ({ delay = 0 }) => {
     const interests = [
         { name: 'Perception', color: 'from-depth-pink to-depth-pink/50' },
         { name: 'Robotic Vision', color: 'from-lidar-cyan to-lidar-cyan/50' },
-        { name: 'Multi-Agent Systems', color: 'from-purple-400 to-purple-400/50' },
     ];
 
     return (

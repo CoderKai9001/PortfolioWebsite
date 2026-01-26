@@ -5,14 +5,15 @@
 /* Custom Theme Colors */
 @theme {
 
-  --color-obsidian: #020617;
-  --color-obsidian-light: #0f172a;
-  --color-depth-pink: #f472b6;
-  --color-depth-pink-dim: #831843;
-  --color-lidar-cyan: #22d3ee;
-  --color-lidar-cyan-dim: #164e63;
-  --color-glass: rgba(15, 23, 42, 0.6);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-obsidian: #000000;
+  --color-obsidian-light: #0a0a0a;
+  --color-depth-pink: #08CB00;
+  --color-depth-pink-dim: #046a00;
+  --color-lidar-cyan: #253900;
+  --color-lidar-cyan-dim: #111b00;
+  --color-text-main: #EEEEEE;
+  --color-glass: rgba(0, 0, 0, 0.7);
+  --color-glass-border: rgba(8, 203, 0, 0.2);
 
   --font-heading: 'Space Grotesk', 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -58,8 +59,8 @@ pre,
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 30px rgba(244, 114, 182, 0.1);
+  border-color: rgba(8, 203, 0, 0.4);
+  box-shadow: 0 0 30px rgba(8, 203, 0, 0.1);
 }
 
 /* Glow Effects */
@@ -172,8 +173,8 @@ pre,
 
 /* Selection Style */
 ::selection {
-  background: rgba(244, 114, 182, 0.3);
-  color: white;
+  background: rgba(8, 203, 0, 0.3);
+  color: #EEEEEE;
 }
 
 /* Scrollbar Styling */
@@ -186,10 +187,10 @@ pre,
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-obsidian-light);
+  background: #253900;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(244, 114, 182, 0.3);
+  background: #08CB00;
 }
