@@ -98,17 +98,130 @@ pre,
   animation: pulse-led 2s ease-in-out infinite;
 }
 
-/* Scanline Overlay */
-.scanlines {
-  pointer-events: none;
+/* Main CRT Container */
+.crt-container {
   position: fixed;
   inset: 0;
-  z-index: 100;
-  background: repeating-linear-gradient(0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 0, 0, 0.03) 2px,
-      rgba(0, 0, 0, 0.03) 4px);
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.crt-container.hidden {
+  opacity: 0;
+}
+
+/* Scanlines */
+.crt-scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.1) 50%),
+    linear-gradient(90deg,
+      rgba(255, 0, 0, 0.02),
+      rgba(0, 255, 0, 0.01),
+      rgba(0, 0, 255, 0.02));
+  background-size: 100% 3px, 3px 100%;
+}
+
+/* Screen Flicker */
+@keyframes crt-flicker {
+  0% {
+    opacity: 0.98;
+  }
+
+  5% {
+    opacity: 0.95;
+  }
+
+  10% {
+    opacity: 0.99;
+  }
+
+  15% {
+    opacity: 0.92;
+  }
+
+  20% {
+    opacity: 0.98;
+  }
+
+  25% {
+    opacity: 0.99;
+  }
+
+  30% {
+    opacity: 0.94;
+  }
+
+  100% {
+    opacity: 0.98;
+  }
+}
+
+.crt-flicker {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 16, 16, 0.02);
+  animation: crt-flicker 0.15s infinite;
+  will-change: opacity;
+}
+
+/* Analog Grain/Noise */
+@keyframes crt-grain {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-1%, -1%);
+  }
+
+  20% {
+    transform: translate(1%, 1%);
+  }
+
+  30% {
+    transform: translate(-2%, 1%);
+  }
+
+  40% {
+    transform: translate(2%, -1%);
+  }
+
+  50% {
+    transform: translate(-1%, 2%);
+  }
+
+  60% {
+    transform: translate(1%, -2%);
+  }
+}
+
+.crt-grain {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  animation: crt-grain 8s steps(10) infinite;
+}
+
+/* Vignette */
+.crt-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+      transparent 50%,
+      rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Scanline Overlay (Deprecating old one) */
+.scanlines {
+  display: none;
 }
 
 /* Coordinate Display */
