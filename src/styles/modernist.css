@@ -1,0 +1,66 @@
+/* Modernist — tokens + base, from the bound design system */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap');
+
+:root {
+  --accent: #ec3013;
+  --accent-deep: #ae1800;
+  --accent-press: #dd2b0f;
+  --ink: #201e1d;
+  --bg: #f3f2f2;
+  --rule: rgba(32, 30, 29, 0.4);
+  --hair: rgba(32, 30, 29, 0.2);
+  --muted: rgba(32, 30, 29, 0.55);
+  --font: "Archivo", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: var(--font); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; }
+img { display: block; max-width: 100%; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+::selection { background: rgba(236, 48, 19, 0.3); }
+
+/* the square pointer replaces the native cursor on precise pointers */
+@media (pointer: fine) {
+  html.has-custom-cursor, html.has-custom-cursor * { cursor: none; }
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--ink); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+@media (max-width: 860px) {
+  #top { grid-template-columns: 1fr !important; }
+  #top > div:first-child { border-right: 0 !important; padding: 40px 0 32px !important; }
+  #top > div:last-child { border-top: 2px solid var(--rule); }
+  #top > div:last-child > div { padding-left: 0 !important; }
+  #research article { grid-template-columns: 1fr !important; gap: 14px !important; }
+  #contact > div { grid-template-columns: 1fr !important; gap: 32px !important; align-items: start !important; }
+}
+@media (max-width: 600px) {
+  #publications table td, #publications table th { font-size: 13px !important; padding-right: 10px !important; }
+  #publications table td:nth-child(2) { font-size: 15px !important; }
+  #publications table th:nth-child(3), #publications table td:nth-child(3) { display: none; }
+}
+
+/* interaction states for the page's buttons and link rows */
+.btn-solid:hover { background: var(--accent-press) !important; color: #fff; text-decoration: none; }
+.btn-solid:active { background: var(--accent-deep) !important; }
+.btn-outline:hover { background: var(--accent); border-color: var(--accent) !important; color: #fff; text-decoration: none; }
+.btn-outline:active { background: var(--accent-deep); border-color: var(--accent-deep) !important; }
+.btn-invert:hover { background: var(--ink) !important; color: #fff; text-decoration: none; }
+.link-row:hover { color: var(--ink) !important; text-decoration: none; }

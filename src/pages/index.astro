@@ -1,34 +1,148 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import BentoGrid from "../components/BentoGrid.astro";
-import LidarBackground from "../components/LidarBackground";
-import ScanlineOverlay from "../components/ScanlineOverlay";
-import CoordinatesTracker from "../components/CoordinatesTracker";
-import CustomCursor from "../components/CustomCursor";
+import ModernistCursor from "../components/ModernistCursor";
 ---
 
 <Layout title="Aditya Vadali | Perception & Robotic Vision">
-  <!-- Custom Cursor -->
-  <CustomCursor client:load />
+  <ModernistCursor client:load />
 
-  <!-- LIDAR Point Cloud Background -->
-  <LidarBackground client:load />
+  <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px 0 32px">
 
-  <!-- Scanline Overlay Effect -->
-  <ScanlineOverlay client:load />
+    <header style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 24px 0 20px; border-bottom: 2px solid var(--rule); flex-wrap: wrap">
+      <a href="#top" style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); text-transform: uppercase">Aditya&nbsp;C.&nbsp;Vadali</a>
+      <nav style="display: flex; align-items: baseline; gap: 28px; flex-wrap: wrap">
+        <a href="#research" style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink)">Research</a>
+        <a href="#publications" style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink)">Publications</a>
+        <a href="#contact" style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink)">Contact</a>
+        <a href="https://drive.google.com/file/d/1ZO-ABnzb-TQRck6dcwqWPya9a7ub-0g4/view?usp=sharing" target="_blank" rel="noopener" class="btn-solid" style="display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 16px">Curriculum Vitae
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M7 17 17 7"></path><path d="M9 7h8v8"></path></svg>
+        </a>
+      </nav>
+    </header>
 
-  <!-- Coordinates Tracker -->
-  <CoordinatesTracker client:load />
+    <section id="top" style="display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, 1fr); border-bottom: 2px solid var(--rule)">
+      <div style="padding: 56px 40px 56px 0; border-right: 2px solid var(--rule)">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(32,30,29,0.55); margin-bottom: 28px">Perception &amp; Robotic Vision</div>
+        <h1 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(40px, 6.2vw, 76px); line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 28px; text-wrap: balance">Giving eyes to robots. And the brains behind them.</h1>
+        <p style="font-size: 19px; line-height: 1.5; max-width: 46ch; margin: 0 0 14px; color: var(--ink); text-wrap: pretty">I build the systems that let a robot see a space, understand it, and move through it. My current work is on topological mapping and end-to-end learning for navigation in complex indoor environments.</p>
+        <p style="font-size: 19px; line-height: 1.5; max-width: 46ch; margin: 0; color: rgba(32,30,29,0.62); text-wrap: pretty">Most recently: <a href="https://arxiv.org/abs/2607.12811" target="_blank" rel="noopener" style="color: #ae1800; text-decoration: underline; text-underline-offset: 3px">PixelLoop</a>, accepted at IROS 2026, and Plann3r, under review at CoRL 2026.</p>
+      </div>
+      <div style="display: grid; grid-template-rows: repeat(4, minmax(0, 1fr))">
+        <div style="padding: 20px 0 18px 28px; border-bottom: 1px solid rgba(32,30,29,0.2)">
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(32,30,29,0.5); margin-bottom: 6px">Focus</div>
+          <div style="font-size: 15px; font-weight: 500">Perception, robotic vision, embodied navigation</div>
+        </div>
+        <div style="padding: 20px 0 18px 28px; border-bottom: 1px solid rgba(32,30,29,0.2)">
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(32,30,29,0.5); margin-bottom: 6px">Email</div>
+          <a href="mailto:moulichandra4321@gmail.com" style="font-size: 15px; font-weight: 500; color: #ae1800; word-break: break-all">moulichandra4321@gmail.com</a>
+        </div>
+        <div style="padding: 20px 0 18px 28px; border-bottom: 1px solid rgba(32,30,29,0.2)">
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(32,30,29,0.5); margin-bottom: 6px">Publications</div>
+          <div style="display: flex; gap: 16px; font-size: 15px; font-weight: 500">
+            <a href="#publications" style="color: #ae1800">See all</a>
+            <a href="https://scholar.google.com/citations?user=FS8V81QAAAAJ&hl=en" target="_blank" rel="noopener" style="color: #ae1800">Google Scholar</a>
+          </div>
+        </div>
+        <div style="padding: 20px 0 18px 28px">
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(32,30,29,0.5); margin-bottom: 6px">Elsewhere</div>
+          <div style="display: flex; gap: 16px; font-size: 15px; font-weight: 500">
+            <a href="https://www.linkedin.com/in/aditya-chandramouli-vadali-180131289/" target="_blank" rel="noopener" style="color: #ae1800">LinkedIn</a>
+            <a href="https://github.com/CoderKai9001" target="_blank" rel="noopener" style="color: #ae1800">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Main Content -->
-  <main class="relative z-10 min-h-screen flex items-center justify-center">
-    <BentoGrid />
-  </main>
+    <section id="research" style="padding: 56px 0 8px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 36px">
+        <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em; margin: 0">Research</h2>
+      </div>
 
-  <!-- Headline text at very top -->
-  <div class="fixed top-6 left-1/2 -translate-x-1/2 z-20">
-    <p class="mono text-xs text-white/40 tracking-widest">
-      MAPPING THE WORLD THROUGH THE LENS OF ROBOTICS
-    </p>
+      <div style="display: grid; gap: 0">
+        <article style="display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 2px solid var(--rule)">
+          <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px; color: var(--accent)">01</div>
+          <div>
+            <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.015em; margin: 0 0 8px; text-wrap: balance">Topological mapping for indoor navigation</h3>
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.5)">Ongoing</div>
+          </div>
+          <p style="font-size: 16px; line-height: 1.55; margin: 0; color: rgba(32,30,29,0.75); text-wrap: pretty">Robots that navigate real indoor spaces need a map that captures structure, not just geometry. I work on topological representations paired with end-to-end learned policies, so a robot can plan over places and doorways rather than over a metric grid it can never keep perfectly accurate.</p>
+        </article>
+
+        <article style="display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 2px solid var(--rule)">
+          <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px; color: var(--accent)">02</div>
+          <div>
+            <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.015em; margin: 0 0 8px">PixelLoop</h3>
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.5)">Accepted &middot; IROS 2026</div>
+          </div>
+          <div>
+            <p style="font-size: 16px; line-height: 1.55; margin: 0 0 14px; color: rgba(32,30,29,0.75); text-wrap: pretty">Accepted at IROS 2026; I will be presenting it there. The preprint is on arXiv.</p>
+            <a href="https://arxiv.org/abs/2607.12811" target="_blank" rel="noopener" class="btn-outline" style="display: inline-flex; align-items: center; gap: 8px; font-family: Archivo, sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); border: 2px solid var(--ink); padding: 9px 14px">Read on arXiv
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M7 17 17 7"></path><path d="M9 7h8v8"></path></svg>
+            </a>
+          </div>
+        </article>
+
+        <article style="display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule)">
+          <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px; color: var(--accent)">03</div>
+          <div>
+            <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.015em; margin: 0 0 8px">Plann3r</h3>
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.5)">CoRL 2026 &middot; under review</div>
+          </div>
+          <p style="font-size: 16px; line-height: 1.55; margin: 0; color: rgba(32,30,29,0.75); text-wrap: pretty">Submitted to CoRL 2026; rebuttal is in. I will link the preprint here as soon as it is public.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications" style="padding: 48px 0 56px">
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -0.02em; margin: 0 0 28px">Publications</h2>
+      <table style="width: 100%; border-collapse: collapse; text-align: left">
+        <thead>
+          <tr>
+            <th style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(32,30,29,0.5); padding: 0 16px 10px 0; border-bottom: 2px solid var(--rule); width: 84px">Year</th>
+            <th style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(32,30,29,0.5); padding: 0 16px 10px 0; border-bottom: 2px solid var(--rule)">Title</th>
+            <th style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(32,30,29,0.5); padding: 0 16px 10px 0; border-bottom: 2px solid var(--rule); width: 30%">Venue</th>
+            <th style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(32,30,29,0.5); padding: 0 0 10px 0; border-bottom: 2px solid var(--rule); width: 110px">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 18px 16px 18px 0; border-bottom: 1px solid rgba(32,30,29,0.2); font-size: 15px; font-weight: 500">2026</td>
+            <td style="padding: 18px 16px 18px 0; border-bottom: 1px solid rgba(32,30,29,0.2); font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px">PixelLoop</td>
+            <td style="padding: 18px 16px 18px 0; border-bottom: 1px solid rgba(32,30,29,0.2); font-size: 15px; color: rgba(32,30,29,0.7)">IROS 2026, accepted</td>
+            <td style="padding: 18px 0; border-bottom: 1px solid rgba(32,30,29,0.2); font-size: 14px; font-weight: 600"><a href="https://arxiv.org/abs/2607.12811" target="_blank" rel="noopener" style="color: #ae1800">arXiv &rarr;</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 18px 16px 18px 0; border-bottom: 1px solid rgba(32,30,29,0.2); font-size: 15px; font-weight: 500">2026</td>
+            <td style="padding: 18px 16px 18px 0; border-bottom: 1px solid rgba(32,30,29,0.2); font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px">Plann3r</td>
+            <td style="padding: 18px 16px 18px 0; border-bottom: 1px solid rgba(32,30,29,0.2); font-size: 15px; color: rgba(32,30,29,0.7)">CoRL 2026, under review</td>
+            <td style="padding: 18px 0; border-bottom: 1px solid rgba(32,30,29,0.2); font-size: 14px; color: rgba(32,30,29,0.45)">&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 14px; color: rgba(32,30,29,0.55); margin: 16px 0 0">Full list on <a href="https://scholar.google.com/citations?user=FS8V81QAAAAJ&hl=en" target="_blank" rel="noopener" style="color: #ae1800">Google Scholar</a>.</p>
+    </section>
   </div>
+
+  <section id="contact" style="background: var(--accent); color: #fff; padding: 72px 0 64px">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr); gap: 48px; align-items: end">
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 20px">Contact</div>
+        <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(34px, 5vw, 58px); line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 24px; color: #fff; text-wrap: balance">If you work on robot perception, I would like to hear from you.</h2>
+        <a href="mailto:moulichandra4321@gmail.com" class="btn-invert" style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--accent); font-family: Archivo, sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 20px">moulichandra4321@gmail.com
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M7 17 17 7"></path><path d="M9 7h8v8"></path></svg>
+        </a>
+      </div>
+      <div style="display: grid; gap: 0; border-top: 2px solid rgba(255,255,255,0.45)">
+        <a href="https://scholar.google.com/citations?user=FS8V81QAAAAJ&hl=en" target="_blank" rel="noopener" class="link-row" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.35); color: #fff; font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px">Google Scholar <span style="font-weight: 400">&rarr;</span></a>
+        <a href="https://www.linkedin.com/in/aditya-chandramouli-vadali-180131289/" target="_blank" rel="noopener" class="link-row" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.35); color: #fff; font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px">LinkedIn <span style="font-weight: 400">&rarr;</span></a>
+        <a href="https://github.com/CoderKai9001" target="_blank" rel="noopener" class="link-row" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.35); color: #fff; font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px">GitHub <span style="font-weight: 400">&rarr;</span></a>
+        <a href="https://drive.google.com/file/d/1ZO-ABnzb-TQRck6dcwqWPya9a7ub-0g4/view?usp=sharing" target="_blank" rel="noopener" class="link-row" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; color: #fff; font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px">Curriculum Vitae <span style="font-weight: 400">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width: 1180px; margin: 0 auto; padding: 24px 32px 40px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.5)">Aditya Chandramouli Vadali</div>
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.5)">Perception &amp; Robotic Vision</div>
+  </footer>
 </Layout>
