@@ -5,12 +5,29 @@
   --accent: #ec3013;
   --accent-deep: #ae1800;
   --accent-press: #dd2b0f;
+  --link: #ae1800;
   --ink: #201e1d;
+  --ink-rgb: 32, 30, 29;
   --bg: #f3f2f2;
   --rule: rgba(32, 30, 29, 0.4);
   --hair: rgba(32, 30, 29, 0.2);
   --muted: rgba(32, 30, 29, 0.55);
   --font: "Archivo", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --accent: #ff5a35;
+  --accent-deep: #ae1800;
+  --accent-press: #dd2b0f;
+  --link: #ff9a72;
+  --ink: #f2efec;
+  --ink-rgb: 242, 239, 236;
+  --bg: #141210;
+  --rule: rgba(242, 239, 236, 0.28);
+  --hair: rgba(242, 239, 236, 0.16);
+  --muted: rgba(242, 239, 236, 0.6);
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -24,6 +41,7 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background-color .2s ease, color .2s ease;
 }
 h1, h2, h3, h4 { font-family: var(--font); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; }
 img { display: block; max-width: 100%; }
@@ -32,6 +50,27 @@ a:hover { color: var(--accent-deep); text-decoration: underline; text-underline-
 :focus { outline: none; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 ::selection { background: rgba(236, 48, 19, 0.3); }
+
+/* theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0;
+  flex: 0 0 auto;
+}
+.theme-toggle:hover { background: var(--ink); color: var(--bg); }
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* the square pointer replaces the native cursor on precise pointers */
 @media (pointer: fine) {
