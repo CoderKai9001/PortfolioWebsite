@@ -76,7 +76,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-          cache: "pip" # caching pip dependencies
+          # No pip cache: this repo has no requirements.txt/pyproject.toml, and the
+          # build installs nbconvert directly below. Enabling it fails the step.
       - name: Setup Node 🧰
         uses: actions/setup-node@v4
         with:
