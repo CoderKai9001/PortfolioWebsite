@@ -1,0 +1,21 @@
+# Social media links and usernames, rendered by the jekyll-socials plugin.
+# Icons appear in the order defined here.
+# Docs: https://github.com/george-gca/jekyll-socials
+#
+# NOTE: do not leave a key present but empty -- jekyll-socials still emits an
+# icon and links it to the bare profile URL (e.g. linkedin.com/in/), which is a
+# dead link. Keep unused networks commented out instead.
+
+cv_pdf: /assets/pdf/Aditya_Vadali_CV.pdf
+email: moulichandra4321@gmail.com
+github_username: CoderKai9001
+
+# TODO: uncomment and fill in once available.
+# Google Scholar ID = the value of `user=` in your profile URL, e.g.
+#   https://scholar.google.com/citations?user=XXXXXXXXXXXX
+# scholar_userid: XXXXXXXXXXXX
+
+# TODO: LinkedIn vanity name = the part after /in/ in your profile URL.
+# linkedin_username: aditya-vadali
+
+rss_icon: false # no blog on this site

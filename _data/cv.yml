@@ -1,0 +1,166 @@
+# CV data, rendered by _pages/cv.md (cv_format: rendercv).
+# Section names map to the resume templates shipped in the al_folio_cv gem.
+cv:
+  name: Aditya Vadali
+  label: Dual Degree (B.Tech + MS by Research) Student, Computer Science
+  email: moulichandra4321@gmail.com
+  location: Hyderabad, India
+  image: ""
+  summary: >
+    Undergraduate researcher at the Robotics Research Center, IIIT Hyderabad, working on
+    visual navigation, 3D vision and robot planning. First author on a CoRL 2026 paper and
+    a co-author on an IROS 2026 paper.
+
+  social_networks:
+    - network: GitHub
+      username: CoderKai9001
+    # TODO: add once available
+    # - network: LinkedIn
+    #   username:
+
+  sections:
+    Education:
+      - institution: International Institute of Information Technology, Hyderabad
+        location: Hyderabad, India
+        url: https://www.iiit.ac.in/
+        area: Computer Science
+        studyType: B.Tech + MS by Research, Dual Degree (CSD)
+        start_date: 2023-08
+        end_date: 2028-05
+        highlights:
+          - "**CGPA: 8.04 / 10**"
+          - Currently in the 4th year (semester 7). Expected graduation May 2028.
+
+    Experience:
+      - company: Robotics Research Center (RRC), IIIT Hyderabad
+        position: Undergraduate Researcher
+        location: Hyderabad, India
+        start_date: 2024-05
+        end_date: present
+        summary: >
+          Advisor: Prof. K. Madhava Krishna. Collaborator: Prof. Sourav Garg.
+          Robotic perception, 3D vision, and planning & navigation.
+        highlights:
+          - >
+            <strong>Plann3r &mdash; 3D-grounded planning costs (CoRL 2026, first author).</strong>
+            Fine-tuned VGGT with a new prediction head that outputs goal-conditioned geodesic
+            costmaps for navigation from single-camera RGB input; evaluated on HM3D scenes.
+          - >
+            Designed and ran the Plann3r rebuttal experiments, including a loop-closure extension
+            addressing single-traversal assumptions, retrieval-noise sweeps, and bootstrap
+            confidence intervals.
+          - >
+            <strong>PixelLoop &mdash; pixel-level loop closures (IROS 2026).</strong>
+            Co-developed a loop-detection pipeline that adds pixel-level loop closures to
+            topological navigation methods such as MASt3R-Nav, and ran its benchmark evaluation.
+          - >
+            <strong>Ongoing.</strong> Topological navigation, visual place recognition (VPR), and
+            RGB-only last-mile docking for mobile robots.
+          - >
+            <strong>Deep-learning-based visual servoing (Summer 2024).</strong> Revived legacy
+            codebases for the lab's RTVS and Imagine2Servo methods and built a benchmark
+            evaluating them across varying viewpoint angles and query-to-goal distances.
+
+    Publications:
+      # NOTE: the CV publications template renders title / publisher / summary only,
+      # so author lists live inside `summary`.
+      - title: "Plann3r: Predicting Planning Costs Grounded in 3D"
+        publisher: Conference on Robot Learning (CoRL)
+        releaseDate: 2026
+        summary: >
+          **A. Vadali**, K. Pandya, V. Garg, N. Chandna, D. Craggs, F. Dayoub,
+          K. M. Krishna, S. Garg.<br>
+          **First author.** Accepted; presenting in person at CoRL 2026, Austin, TX, USA
+          (Nov 9&ndash;12, 2026).
+
+      - title: "PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops"
+        publisher: IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
+        releaseDate: 2026
+        # TODO: verify this arXiv ID -- the CV lists 2607.12811, which looks like a typo.
+        url: https://arxiv.org/abs/2607.12811
+        summary: >
+          S. Chittawar, V. Garg, **A. Vadali**, K. Pandya, R. Jayanti, S. Garg,
+          K. M. Krishna.<br>
+          Accepted.
+
+    Awards:
+      # Rendered in file order -- the CV template does not sort this section.
+      - title: Most Impactful Project &mdash; HackIIIT 2026
+        date: 2026-02
+        awarder: IIIT Hyderabad
+        summary: >
+          Mess crowd-prediction system using live QR-scan data and ARMA forecasting to
+          recommend visit times; integrated into the official MyIIIT app and used daily by
+          1000+ students.
+
+      - title: 3rd Place &mdash; Lloyds Banking Group Hackathon
+        date: 2025-12
+        awarder: Lloyds Banking Group IP&I
+        summary: >
+          Agentic AI system on Google Cloud that detects and corrects data inconsistencies
+          with a human in the loop.
+
+      - title: 1st Place &mdash; Megathon 2025, IIIT Hyderabad
+        date: 2025-10
+        awarder: IIIT Hyderabad (Qualcomm-sponsored)
+        summary: >
+          SnapGen: a prompt-driven Stable Diffusion style-transfer editor, deployed fully
+          on-device on the Qualcomm QIDK NPU.
+
+      - title: 2nd Place &mdash; Megathon 2024, IIIT Hyderabad
+        date: 2024-10
+        awarder: IIIT Hyderabad (Qualcomm-sponsored)
+        summary: >
+          Yoga instructor app: on-device human keypoint detection on the Qualcomm QIDK NPU,
+          with real-time pose-correction feedback derived from joint angles.
+
+    Projects:
+      - name: Splatt3r-SfM &mdash; 3D Vision
+        start_date: 2025
+        end_date: 2025
+        summary: >
+          Combined MASt3R-SfM N-view pose estimation with Splatt3r's 2-view Gaussian head,
+          fusing pairwise splats into a single aligned scene for feed-forward novel view
+          synthesis from unposed images.
+
+      - name: NoMaD Deployment on Pioneer P3DX &mdash; Robot Navigation
+        start_date: 2025
+        end_date: 2025
+        summary: >
+          Deployed an image-goal navigation model on a Pioneer P3DX over ROS for closed-loop
+          control, optimizing inference for real-time onboard operation.
+
+      - name: Construction Site Safety Hazard Checker &mdash; Edge Computer Vision
+        summary: >
+          Fine-tuned YOLOv11 on an edge device to detect helmet, safety-vest and glove
+          compliance, with an admin dashboard for worker-density monitoring and email
+          hazard alerts.
+
+      - name: Distributed Network File System &mdash; Systems (C)
+        summary: >
+          Storage servers, a naming server and clients supporting concurrent requests and
+          streaming of text, audio and video over a structured directory system.
+
+      - name: Ray Tracer in C++ &mdash; Computer Graphics
+        start_date: 2024
+        end_date: 2024
+        summary: >
+          Full ray-tracing pipeline with analytic intersection for five primitive types,
+          plus lighting, shading and shadows, rendered via OpenGL.
+
+    Skills:
+      - name: Languages
+        icon: fa-solid fa-code
+        keywords: "Python, C, C++, JavaScript, TypeScript, SQL"
+
+      - name: Frameworks
+        icon: fa-solid fa-layer-group
+        keywords: "PyTorch, TensorFlow, scikit-learn, React, Next.js, Node.js, Flask, FastAPI"
+
+      - name: Tools
+        icon: fa-solid fa-screwdriver-wrench
+        keywords: "Docker, ROS, Git, OpenGL, NumPy, Pandas, SSH"
+
+      - name: Research areas
+        icon: fa-solid fa-robot
+        keywords: "Visual navigation, 3D vision, visual place recognition, Gaussian splatting, robot planning"
